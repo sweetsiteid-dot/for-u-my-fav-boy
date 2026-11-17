@@ -1,7 +1,9 @@
+
 /* =====================================
    BIRTHDAY SPECIAL
-   FROM: ARUM SOVIYA MITA
-   TO: NIEL
+   FROM: NIEL CAKEP
+   TO: ARUM SOVIYA MITA
+   AGE: 14 YEARS
    THEME: SOFT PINK
 ===================================== */
 
@@ -20,20 +22,32 @@ const memoryBtn = document.getElementById("memoryBtn");
 
 /* OPEN WEBSITE */
 
-if (openBtn) {
+if (openBtn && opening && mainContent) {
 
     openBtn.addEventListener("click", async () => {
+
+        openBtn.disabled = true;
+        openBtn.innerHTML = "Opening Your Surprise... ♡";
 
         /* PLAY MUSIC */
 
         if (music) {
+
             music.volume = 0.6;
 
             try {
                 await music.play();
+
+                if (musicBtn) {
+                    musicBtn.innerHTML = "⏸ Pause Music";
+                }
+
             } catch (error) {
-                console.log("Music could not autoplay:", error);
+
+                console.log("Music playback failed:", error);
+
             }
+
         }
 
         /* FLOWER AND HEART RAIN */
@@ -46,7 +60,8 @@ if (openBtn) {
             "✨",
             "🎀",
             "♡",
-            "💖"
+            "💖",
+            "🌺"
         ];
 
         for (let i = 0; i < 80; i++) {
@@ -64,7 +79,7 @@ if (openBtn) {
                 Math.random() * 100 + "vw";
 
             item.style.fontSize =
-                Math.random() * 18 + 15 + "px";
+                Math.random() * 20 + 15 + "px";
 
             item.style.animationDuration =
                 Math.random() * 3 + 2 + "s";
@@ -76,14 +91,9 @@ if (openBtn) {
 
             setTimeout(() => {
                 item.remove();
-            }, 6000);
+            }, 6500);
 
         }
-
-        /* BUTTON EFFECT */
-
-        openBtn.disabled = true;
-        openBtn.innerHTML = "Opening Your Surprise... ♡";
 
         /* OPENING TRANSITION */
 
@@ -217,8 +227,6 @@ if (slides.length > 1) {
 
 dots.forEach((dot, index) => {
 
-    dot.style.cursor = "pointer";
-
     dot.addEventListener("click", () => {
 
         if (index < slides.length) {
@@ -267,9 +275,6 @@ function createHeart() {
     heart.style.animationDuration =
         Math.random() * 5 + 8 + "s";
 
-    heart.style.opacity =
-        Math.random() * 0.5 + 0.3;
-
     heartsContainer.appendChild(heart);
 
     setTimeout(() => {
@@ -292,5 +297,5 @@ showSlide(0);
 /* CONSOLE MESSAGE */
 
 console.log(
-    "🎀 Happy Birthday Niel! Made with love by Arum Soviya Mita ♡"
+    "🎀 Happy 14th Birthday, Arum Soviya Mita! From Niel Cakep ♡"
 );
